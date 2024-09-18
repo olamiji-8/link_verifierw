@@ -3,16 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Link Verifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Link Verifier</h1>
-    <form method="post">
-        <input type="text" name="url" placeholder="Enter a URL" required>
-        <button type="submit">Verify</button>
-    </form>
+    <header>
+        <h1>Link Verifier</h1>
+    </header>
+    <div class="container">
+        <div class="form-container">
+            <form method="post">
+                <input type="text" name="url" placeholder="Enter a URL" required>
+                <button type="submit">Verify</button>
+            </form>
 
-    {% if message %}
-        <p>{{ message }}</p>
-    {% endif %}
+            {% if message %}
+                <div class="message {{ 'valid' if is_valid else 'invalid' }}">
+                    {{ message }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
 </body>
 </html>
