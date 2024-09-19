@@ -47,7 +47,7 @@ def is_phishing(url):
     return False, "URL seems fine."
 
 @app.route('/')
-def index():
+def home():
     return render_template('home.html')
 
 @app.route('/check', methods=['POST'])
